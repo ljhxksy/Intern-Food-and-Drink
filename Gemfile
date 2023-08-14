@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.2"
 
 gem "rails", "~> 7.0.6"
+gem "bcrypt"
 gem "sprockets-rails"
 gem "mysql2"
 gem "puma", "~> 5.0"
@@ -16,6 +17,7 @@ gem "bootsnap", require: false
 gem "dotenv-rails"
 
 group :development, :test do
+  gem 'pry-rails'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
