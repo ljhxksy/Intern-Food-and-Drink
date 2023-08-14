@@ -1,0 +1,10 @@
+.login-admin {
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    top: 20%;
+}
+
+.login-admin form h1 {
+    text-align: center;
+}
