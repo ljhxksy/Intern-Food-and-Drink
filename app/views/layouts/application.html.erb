@@ -9,11 +9,27 @@
     <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags %>
+    
 
   </head>
 
   <body>
-    <%= render "layouts/header" if admin_logged_in? %> 
-    <%= yield %>
+    <div class="container-fuild admin-layout">
+      <% if admin_logged_in? %>
+        <div class="row">
+          <div class="col-2">
+            <%= render "layouts/sidebar" %>
+          </div>
+          <div class="col-10">
+            <%= render "layouts/header" %> 
+            <div class="container-content">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </div>
   </body>
 </html>

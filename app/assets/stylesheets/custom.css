@@ -1,3 +1,5 @@
+@import 'sidebar.css';
+
 .login-admin {
     width: 50%;
     position: absolute;
@@ -7,4 +9,16 @@
 
 .login-admin form h1 {
     text-align: center;
+}
+
+.admin-layout .row .col-2 {
+    padding: 0;
+}
+
+.admin-layout .row .col-10 {
+    padding: 0 20px 0 0;
+}
+
+.row {
+    height: 100vh;
 }
