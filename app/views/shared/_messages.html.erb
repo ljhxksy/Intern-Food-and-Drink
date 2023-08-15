@@ -1,11 +1,12 @@
-<% flash.each do |type, msg| %>
-  <% if type == "error" %>
-    <div class="alert alert-danger" role="alert">
-      <%= msg %>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@user.errors.count, "error") %>.
     </div>
-  <% else %>
-    <div class="alert alert-info">
-      <%= msg %>
-    </div>
-  <% end %>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
