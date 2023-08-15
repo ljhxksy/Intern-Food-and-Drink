@@ -1,5 +1,6 @@
 @import 'sidebar.css';
 @import 'user_profile.css';
+@import 'show_product.css';
 
 .login-admin {
     width: 50%;
