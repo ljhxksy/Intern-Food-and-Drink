@@ -1,4 +1,5 @@
 @import 'sidebar.css';
+@import 'user_profile.css';
 
 .login-admin {
     width: 50%;
@@ -22,3 +23,12 @@
 .row {
     height: 100vh;
 }
+
+.container-content {
+    padding: 10px;
+}
+
+.update-row {
+    padding-left: 35%;
+}
+

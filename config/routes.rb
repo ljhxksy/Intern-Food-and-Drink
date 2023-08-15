@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     root "homepage#login"
     get "home", to: "homepage#home"
     post "login", to: "session#create"
+    
+    resources :users
   end
 end
