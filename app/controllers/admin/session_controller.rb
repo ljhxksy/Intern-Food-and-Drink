@@ -1,4 +1,5 @@
 class Admin::SessionController < Admin::AdminController
+    skip_before_action :check_admin_login, only: [:create]
     def create
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password]) && user.admin?

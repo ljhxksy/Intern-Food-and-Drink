@@ -33,3 +33,5 @@ group :test do
 end
 
 gem "cssbundling-rails", "~> 1.2"
+
+gem "hotwire-rails", "~> 0.1.3"
