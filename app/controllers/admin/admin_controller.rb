@@ -1,6 +1,8 @@
 class Admin::AdminController < ApplicationController
     include Admin::SessionHelper
     before_action :check_admin_login
+
+
     
     private
 

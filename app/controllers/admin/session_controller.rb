@@ -10,4 +10,9 @@ class Admin::SessionController < Admin::AdminController
             redirect_to(admin_root_path)
         end
     end
+
+    def destroy
+        admin_log_out if admin_logged_in?
+        redirect_to(admin_root_path)
+    end
 end
