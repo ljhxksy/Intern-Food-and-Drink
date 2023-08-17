@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root "homepage#login"
     get "home", to: "homepage#home"
     post "login", to: "session#create"
+    delete "logout", to: "session#destroy"
     
     resources :users
     resources :products

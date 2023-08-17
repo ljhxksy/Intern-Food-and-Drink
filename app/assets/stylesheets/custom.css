@@ -34,3 +34,7 @@
     padding-left: 35%;
 }
 
+.admin-profile-box {
+    position: absolute;
+    right: 0;
+}
