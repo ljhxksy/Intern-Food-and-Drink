@@ -1,18 +1,16 @@
 class Admin::UsersController < Admin::AdminController
+    before_action :find_user, only: [:show, :edit, :update, :destroy]
     def index
         @users = User.user
     end
 
     def show
-        @user = User.find(params[:id])
     end
 
     def edit
-        @user = User.find(params[:id])
     end
 
     def update
-        @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:success] = "Profile updated"
             redirect_to admin_users_path
@@ -22,12 +20,20 @@ class Admin::UsersController < Admin::AdminController
     end
 
     def destroy
-        User.find(params[:id]).destroy
-        flash[:success] = "User deleted"
-        redirect_to admin_users_path
+        if @user.destroy
+            flash[:success] = "User deleted"
+            redirect_to admin_users_path, status: :see_other
+        else
+            redirect_to request.referrer, status: :see_other
+        end
     end
 
     private
+
+        def find_user
+            @user = User.find(params[:id])
+        end
+
         def user_params
             params.require(:user).permit(:username, :email, :password, :password_confirmation)
         end
