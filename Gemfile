@@ -15,6 +15,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "dotenv-rails"
+gem "image_processing", ">= 1.2"
 
 group :development, :test do
   gem 'pry-rails'
@@ -32,3 +33,5 @@ group :test do
 end
 
 gem "cssbundling-rails", "~> 1.2"
+
+gem "hotwire-rails", "~> 0.1.3"

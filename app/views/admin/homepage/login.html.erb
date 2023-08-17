@@ -7,7 +7,6 @@
     <div class="tab-content">
         <%= form_with url: admin_login_path do |form| %>
             <h1> Admin Login</h1>
-            <%= render 'shared/error_messages'%>
             <div class="form-outline mb-4">
                 <%= form.label :email, "Email" %>
                 <%= form.email_field :email, class:"form-control" %>

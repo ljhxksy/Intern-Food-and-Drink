@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+          <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <% if @product.images.present? %>
+              <!-- The slideshow/carousel -->
+              <div class="carousel-inner">
+                <% @product.images.each do |image| %>
+                  <div class="carousel-item <%= image.id == @product.images.first.id ? "active" : "" %>">
+                    <%= image_tag image, class: "d-block", style: "width:100%" %>
+                  </div>
+                <% end %>
+              </div>
+                
+                <!-- Left and right controls/icons -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            <% else %>
+              <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930", class: "img-fluid img-responsive rounded product-image" %>
+            <% end %>
+          </div>
+            
+        </div>
+        
+        <!-- Carousel -->
+        <div class="details col-md-6">
+          <h3 class="product-title">
+              <%= @product.name %>
+          </h3>
+          <p class="product-description">
+              <%= @product.description %>
+          </p>
+          <h4 class="price">Price: 
+              <span> <%= @product.price %> đ </span>
+          </h4>
+          <p class="vote"> In stock: <strong><%= @product.quantity %></strong></p>
+          <div class="action">
+            <button class="add-to-cart btn btn-default" type="button">Edit Item</button>
+            <button class="like btn btn-default" type="button">
+              <%= link_to admin_product_path(@product), data: { "turbo-method": :delete, turbo_confirm: "You sure?"} do %>
+                <i class="bi bi-trash"></i>
+              <% end %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

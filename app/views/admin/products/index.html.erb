@@ -1,0 +1,40 @@
+<h2>Products (lmao)</h2>
+<%= link_to new_admin_product_path do %>
+    <div class="btn btn-primary"> Add new product
+    </div>
+<% end %>
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div>
+            <% @products.each do |product| %>
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1">
+                        <% if product.images.present? %>
+                            <%= image_tag product.images.first, class: "img-fluid img-responsive rounded product-image" %>
+                        <% else %>
+                            <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930", class: "img-fluid img-responsive rounded product-image" %>
+                        <% end %>
+                        </div>
+                    <div class="col-md-6 mt-1">
+                        <h5><%= product.name%></h5>
+                        <div class="mt-1 mb-1 spec-1">
+                            <span>Product description:</span>
+                        </div>
+                        <p class="text-justify text-truncate para mb-0"><%= product.description %><br><br></p>
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1"> <%= product.price %> </h4>
+                        </div>
+                        <h6 class="text-success">Quantity: <%= product.quantity %> </h6>
+                        <div class="d-flex flex-column mt-4">
+                            <%= link_to "Details", admin_product_path(product), class: "btn btn-primary btn-sm" %>
+                            <%= link_to "Edit", edit_admin_product_path(product), class: "btn btn-outline-primary btn-sm mt-2" %>
+                            <%= link_to "Delete", admin_product_path(product), data: { "turbo-method": :delete, turbo_confirm: "You sure?"},class: "btn btn-outline-primary btn-sm mt-2" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
